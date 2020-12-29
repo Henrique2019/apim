@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "production": "pm2 start app.js --name gerarpersonas"
   },
   "author": "henrique ronald",
   "license": "ISC",
@@ -13,7 +14,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
-    "mongoose": "^5.10.13"
+    "mongoose": "^5.10.13",
+    "pm2": "^4.5.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
