@@ -27,7 +27,7 @@ mongoose.connect('mongodb+srv://hr:asd102030@cluster0.wvedx.mongodb.net/persona?
     console.log("error : ohh nao algo deu errado , verifique e tente novamente.");
 });
 
-app.get("/artigo/", (req,res) => {
+app.get("/", (req,res) => {
     Artigo.find({}).then((artigo) => {
         return res.json(artigo);
     }).catch((erro) => {
@@ -38,7 +38,7 @@ app.get("/artigo/", (req,res) => {
     })
 });
 
-app.get("/artigo/:id", (req, res) => {
+app.get("/:id", (req, res) => {
     Artigo.findOne({_id:req.params.id}).then((artigo) =>{
         return res.json(artigo);
     }).catch((erro) => {
@@ -49,7 +49,7 @@ app.get("/artigo/:id", (req, res) => {
     })
 });
 
-app.post("/artigo/", (req,res) => {
+app.post("/", (req,res) => {
    const artigo = Artigo.create(req.body, (err) => {
        if(err) return res.status(400).json({
            error: true,
@@ -63,7 +63,7 @@ app.post("/artigo/", (req,res) => {
    })
 });
 
-app.put("/artigo/:id", (req, res) => {
+app.put("/:id", (req, res) => {
     const artigo = Artigo.updateOne({_id: req.params.id}, req.body, (err) => {
         if(err) return res.status(400).json({
             error: true,
@@ -76,7 +76,7 @@ app.put("/artigo/:id", (req, res) => {
     });
 });
 
-app.delete("/artigo/:id", (req, res) => {
+app.delete("/:id", (req, res) => {
     const artigo = Artigo.deleteOne({_id: req.params.id}, (err) => {
         if(err) return res.status(400).json({
             error: true,
